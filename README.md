@@ -30,7 +30,13 @@ $ ./installLibrealsense.sh
 <em><b>Note:</b> If you are using a RealSense T265 exclusively, this is the only installation necessary. You do not need to patch the modules and kernels as noted below.</em>
 
 <h3>patchUbuntu.sh</h3>
-The patchUbuntu.sh patches kernel modules and installs them to support the RealSense cameras. These patches are for the Depth cameras. The patches include adding the different image formats to the uvcvideo module and timestamping. For the D435i in particular, support for HID interface for the IMU. In addition, a Nano specific patch is added addressing a USB throughput issue. After updating and installing the modules, the script rebuilds the kernel and installs it.
+The patchUbuntu.sh patches kernel modules and installs them to support the RealSense cameras. These patches are for the Depth cameras. The patches include adding the different image formats to the uvcvideo module and timestamping. For the D435i in particular, support for HID interface for the IMU. In addition, a Nano specific patch is added addressing a USB throughput issue. After updating and installing the modules, the script rebuilds the kernel and installs it. To patch the kernel and modules, then install them:
+
+
+
+```
+$ ./patchUbuntu.sh
+```
 
 If you run one of the Depth cameras without addressing these issues, you will see the issues listed on the console about not being able to recognize the image formats, along with time stamp issues and so on. You will also notice that the system log is flooded with OOPs related to not being able to recognize the camera formats from the kernel. 
 
@@ -38,6 +44,22 @@ If you run one of the Depth cameras without addressing these issues, you will se
 
 
 <h2>Notes</h2>
+
+<h4>May, 2019</h4>
+
+* Release v0.8
+* Jetson Nano
+* L4T 32.1.0, Kernel 4.9-140
+* D435i issue resolved - Make kernel image before modules 
+
+
+<h4>May 6, 2019</h4>
+
+* Initial Release v0.7
+* Jetson Nano
+* L4T 32.1.0, Kernel 4.9-140
+* D435i issue addressed
+
 <h4>April 30, 2019</h4>
 <h4>installLibrealsense.sh</h4>
 
